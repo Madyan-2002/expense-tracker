@@ -2,7 +2,7 @@
 // Run:  node server.js   (restart it every time you change this file)
 
 require("dotenv").config();
-const express = require("express");
+const express = require("express");  
 const cors = require("cors");
 const { Pool } = require("pg");
 
@@ -46,7 +46,7 @@ function validateExpense(body) {
   if (typeof amount !== "number" || !Number.isFinite(amount) || amount <= 0) {
     return "Amount must be a number greater than 0.";
   }
-  if (amount >= 100000000) {
+  if (amount >= 1000000000) {
     return "Amount is too large.";
   }
   if (!CATEGORIES.includes(category)) {
