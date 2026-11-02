@@ -8,7 +8,7 @@ CREATE TABLE expenses (
   id       SERIAL PRIMARY KEY,
   title    VARCHAR(100)  NOT NULL CHECK (btrim(title) <> ''),
   amount   NUMERIC(10,2) NOT NULL CHECK (amount > 0),
-  category VARCHAR(20)   NOT NULL CHECK (category IN ('Food', 'Transport', 'Bills', 'Entertainment', 'Other')),
+  category VARCHAR(20)   NOT NULL CHECK (category IN ('Food', 'Transport', 'Bills', 'Entertainment', 'Health', 'Other')),
   date     DATE          NOT NULL
 );
 

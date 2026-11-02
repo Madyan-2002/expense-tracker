@@ -1,5 +1,4 @@
 // Expense Tracker - backend (Express API + PostgreSQL)
-// Run:  node server.js   (restart it every time you change this file)
 
 require("dotenv").config();
 const express = require("express");  
@@ -9,7 +8,7 @@ const { Pool } = require("pg");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const CATEGORIES = ["Food", "Transport", "Bills", "Entertainment", "Other"];
+const CATEGORIES = ["Food", "Transport", "Bills", "Entertainment", "Health", "Other"];
 
 // One Pool for the whole app, configured from the .env file
 const pool = new Pool({
@@ -108,7 +107,7 @@ app.post("/api/expenses", async (req, res) => {
     const result = await pool.query(
       `INSERT INTO expenses (title, amount, category, date)
        VALUES ($1, $2, $3, $4)
-       RETURNING ${FIELDS}`,
+       RETURNING ${FIELDS}`, //
       [title.trim(), amount, category, date]
     );
     res.status(201).json(result.rows[0]);

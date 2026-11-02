@@ -1,8 +1,8 @@
-// Expense Tracker - frontend logic
+
 // Every action talks to the backend with fetch + async/await.
 
 const API_URL = "http://localhost:3000/api/expenses";
-const CATEGORIES = ["Food", "Transport", "Bills", "Entertainment", "Other"];
+const CATEGORIES = ["Food", "Transport", "Bills", "Entertainment", "Health", "Other"];
 
 // Bootstrap colour for each category badge
 const BADGE_COLORS = {
@@ -10,6 +10,7 @@ const BADGE_COLORS = {
   Transport: "primary",
   Bills: "danger",
   Entertainment: "warning",
+  Health: "info",
   Other: "secondary",
 };
 
@@ -61,6 +62,8 @@ function fillCategorySelect(select, withAll) {
     select.appendChild(new Option(category, category));
   }
 }
+
+
 
 // ---------- API functions ----------
 
